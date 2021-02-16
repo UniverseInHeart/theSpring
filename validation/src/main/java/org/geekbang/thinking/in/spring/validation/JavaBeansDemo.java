@@ -45,7 +45,7 @@ public class JavaBeansDemo {
 //                    propertyDescriptor.getWriteMethod(); // Setter 方法
                     System.out.println(propertyDescriptor);
                 });
-
+        System.out.println("=============");
         // 输出 User 定义的方法 MethodDescriptor
         Stream.of(beanInfo.getMethodDescriptors()).forEach(System.out::println);
 
