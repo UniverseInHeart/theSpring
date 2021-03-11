@@ -51,10 +51,10 @@ public class QualifierAnnotationDependencyInjectionDemo {
     // user2 -> @Qualifier
 
     @Autowired
-    private Collection<User> allUsers; // 2 Beans = user + superUser
+    private Collection<User> allUsers; // 5 Beans = user + superUser  +  8  +  9  + 10
 
     @Autowired
-    @Qualifier
+    @Qualifier // 因为@UserGroup继承@Qualifier，所以也会包含@UserGroup注解的Bean
     private Collection<User> qualifiedUsers; // 2 Beans = user1 + user2 -> 4 Beans = user1 + user2 + user3 + user4
 
     @Autowired

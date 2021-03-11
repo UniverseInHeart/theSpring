@@ -41,7 +41,6 @@ import java.util.Set;
 public class LazyAnnotationDependencyInjectionDemo {
 
     @Autowired
-    @Qualifier("user")
     private User user; // 实时注入
 
     @Autowired
@@ -73,10 +72,11 @@ public class LazyAnnotationDependencyInjectionDemo {
         System.out.println("demo.user = " + demo.user);
         // 期待输出 superUser Bean
         System.out.println("demo.userObjectProvider = " + demo.userObjectProvider.getObject()); // 继承 ObjectFactory
+
+        demo.userObjectProvider.forEach(t->System.out.println("    ObjectProvider foreach -> "+t));
+
         // 期待输出 superUser user Beans
         System.out.println("demo.usersObjectFactory = " + demo.usersObjectFactory.getObject());
-
-        demo.userObjectProvider.forEach(System.out::println);
 
 
         // 显示地关闭 Spring 应用上下文
