@@ -34,11 +34,11 @@ import java.util.Map;
  * @author <a href="mailto:mercyblitz@gmail.com">Mercy</a>
  * @since
  */
-@Configuration
+//@Configuration
 public class AnnotationApplicationContextAsIoCContainerDemo {
 
     public static void main(String[] args) {
-        // 创建 BeanFactory 容器
+        // 创建 ApplicationContext
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         // 将当前类 AnnotationApplicationContextAsIoCContainerDemo 作为配置类（Configuration Class）
         applicationContext.register(AnnotationApplicationContextAsIoCContainerDemo.class);
@@ -60,6 +60,14 @@ public class AnnotationApplicationContextAsIoCContainerDemo {
         User user = new User();
         user.setId(1L);
         user.setName("小马哥");
+        return user;
+    }
+
+    @Bean
+    public User user2() {
+        User user = new User();
+        user.setId(2L);
+        user.setName("小马哥2");
         return user;
     }
 

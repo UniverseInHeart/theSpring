@@ -46,7 +46,7 @@ public class SpecialBeanInstantiationDemo {
 
         ServiceLoader<UserFactory> serviceLoader = beanFactory.getBean("userFactoryServiceLoader", ServiceLoader.class);
 
-        displayServiceLoader(serviceLoader);
+//        displayServiceLoader(serviceLoader);
 
 //        demoServiceLoader();
 

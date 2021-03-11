@@ -49,10 +49,10 @@ public class ObjectProviderDemo { // @Configuration 是非必须注解
 
     private static void lookupByStreamOps(AnnotationConfigApplicationContext applicationContext) {
         ObjectProvider<String> objectProvider = applicationContext.getBeanProvider(String.class);
-//        Iterable<String> stringIterable = objectProvider;
-//        for (String string : stringIterable) {
-//            System.out.println(string);
-//        }
+        Iterable<String> stringIterable = objectProvider;
+        for (String string : stringIterable) {
+            System.out.println(string);
+        }
         // Stream -> Method reference
         objectProvider.stream().forEach(System.out::println);
     }
@@ -76,6 +76,6 @@ public class ObjectProviderDemo { // @Configuration 是非必须注解
 
     private static void lookupByObjectProvider(AnnotationConfigApplicationContext applicationContext) {
         ObjectProvider<String> objectProvider = applicationContext.getBeanProvider(String.class);
-        System.out.println(objectProvider.getObject());
+        System.out.println("lookupByObjectProvider: "+objectProvider.getObject());
     }
 }

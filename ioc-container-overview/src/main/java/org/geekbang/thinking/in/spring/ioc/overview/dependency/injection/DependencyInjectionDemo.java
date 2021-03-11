@@ -57,6 +57,8 @@ public class DependencyInjectionDemo {
         // 依赖来源三：容器內建 Bean
         Environment environment = applicationContext.getBean(Environment.class);
         System.out.println("获取 Environment 类型的 Bean：" + environment);
+
+        whoIsIoCContainer(userRepository,applicationContext);
     }
 
     private static void whoIsIoCContainer(UserRepository userRepository, ApplicationContext applicationContext) {
@@ -67,8 +69,12 @@ public class DependencyInjectionDemo {
         // ConfigurableApplicationContext#getBeanFactory()
 
 
-        // 这个表达式为什么不会成立
+        // 这个表达式为什么不会成立? applicationContext 是 BeanFactory的超集
         System.out.println(userRepository.getBeanFactory() == applicationContext);
+
+        // ClassPathXmlApplicationContext 中组合了BeanFactory
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = (ClassPathXmlApplicationContext)applicationContext;
+        System.out.println(userRepository.getBeanFactory() == classPathXmlApplicationContext.getBeanFactory());
 
         // ApplicationContext is BeanFactory
 

@@ -56,9 +56,6 @@ public class DependencyLookupDemo {
             ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
             Map<String, User> users = (Map) listableBeanFactory.getBeansWithAnnotation(Super.class);
             System.out.println("查找标注 @Super 所有的 User 集合对象：" + users);
-
-            Map<String, User> users2 = (Map) listableBeanFactory.getBeansOfType(User.class);
-            System.out.println("查找所有的 User 集合对象：" + users2);
         }
     }
 

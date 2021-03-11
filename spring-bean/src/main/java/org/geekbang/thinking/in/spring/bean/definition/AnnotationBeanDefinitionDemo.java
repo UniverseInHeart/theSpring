@@ -27,10 +27,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.util.Map;
-
-import static org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition;
-
 /**
  * 注解 BeanDefinition 示例
  *
@@ -63,7 +59,7 @@ public class AnnotationBeanDefinitionDemo {
     }
 
     public static void registerUserBeanDefinition(BeanDefinitionRegistry registry, String beanName) {
-        BeanDefinitionBuilder beanDefinitionBuilder = genericBeanDefinition(User.class);
+        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(User.class);
         beanDefinitionBuilder
                 .addPropertyValue("id", 1L)
                 .addPropertyValue("name", "小马哥");

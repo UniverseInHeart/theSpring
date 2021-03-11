@@ -77,6 +77,8 @@ public class TypeSafetyDependencyLookupDemo {
     }
 
     public static void displayBeanFactoryGetBean(BeanFactory beanFactory) {
+        //NoSuchBeanDefinitionException
+        //NoUniqueBeanDefinitionException
         printBeansException("displayBeanFactoryGetBean", () -> beanFactory.getBean(User.class));
     }
 
